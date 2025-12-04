@@ -102,23 +102,48 @@ console.log(reverseString("ciao come va?"));
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 function upperFirst(frase) {
-  let upperCase = [];
-  let spacedFrase = frase.split(" ");
-  for (let i = 0; i < spacedFrase.length; i++) {
-    let parole = spacedFrase[i];
+  let fraseC = [];
+  let words = frase.split(" ");
+  for (let i = 0; i < words.length; i++) {
+    let word = words[i].split("");
+    let m = word[0].toUpperCase();
+    let pi = m + words[i].slice(1);
+    fraseC.push(pi);
   }
-  return upperCase;
+  return fraseC.join(" ");
 }
-
+console.log(upperFirst("finalemnte caspita!"));
 /* ESERCIZIO 9
  Scrivi una funzione di nome "cutString", che riceve come parametro una stringa. La funzione deve creare una nuova stringa senza il primo e l'ultimo carattere
  della stringa originale.
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
-function cutString(frase) {}
+function cutString(frase) {
+  let nuovaStringa = [];
+  let parole = frase.split("");
+  parole.pop();
+  parole.shift();
+  let newFrase = parole.join("");
+  nuovaStringa.push(newFrase);
+  return nuovaStringa;
+}
+console.log(cutString("ciao come va"));
 /* ESERCIZIO 10
  Scrivi una funzione di nome "giveMeRandom", che accetta come parametro un numero n e ritorna un'array contenente n numeri casuali inclusi tra 0 e 10.
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+function generateNumber(n) {
+  let numero = Math.floor(Math.random() * n);
+  return numero;
+}
+function giveMeRandom(n) {
+  let numeri = [];
+  for (let i = 0; i < n; i++) {
+    let numero = generateNumber(11);
+    numeri.push(numero);
+  }
+  return numeri;
+}
+console.log(giveMeRandom(10));
